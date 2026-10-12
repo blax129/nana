@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+.openai/
+recovery-before-media-update/
+/assets/
+.env
+.env.*
+!.env.example

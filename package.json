@@ -1,0 +1,27 @@
+{
+  "name": "nana-ink-and-nails",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "format": "prettier --write src tests index.html",
+    "format:check": "prettier --check src tests index.html"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "lucide-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "prettier": "^3.9.10"
+  }
+}
