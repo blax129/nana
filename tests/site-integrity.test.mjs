@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { existsSync, readFileSync, statSync } from 'node:fs'
-import { portfolio, whatsappUrl } from '../src/data.ts'
+import { phoneUrl, portfolio, whatsappUrl } from '../src/data.ts'
 import { nailDescriptions, inspirationDescriptions } from '../src/galleryData.ts'
 
 test('all curated gallery and studio assets survive a production build', () => {
@@ -43,6 +43,8 @@ test('production uses the React build without recovered runtime scripts', () => 
   }
 })
 test('booking covers both services', () => {
+  assert.equal(new URL(whatsappUrl).pathname, '/2349021639937')
+  assert.equal(phoneUrl, 'tel:+2349021639937')
   const message = new URL(whatsappUrl).searchParams.get('text')
   assert.match(message, /tattoo/)
   assert.match(message, /nail/)

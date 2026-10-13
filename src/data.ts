@@ -6,11 +6,11 @@ export type PortfolioItem = {
 }
 
 export const whatsappUrl =
-  'https://wa.me/2348024478190?text=' +
+  'https://wa.me/2349021639937?text=' +
   encodeURIComponent(
     "Hi Nana! I'd love to book an appointment. Could you share your availability and help me plan my tattoo or artificial nail set?",
   )
-export const phoneUrl = 'tel:+2349037504740'
+export const phoneUrl = 'tel:+2349021639937'
 export const mapUrl =
   'https://www.google.com/maps/search/?api=1&query=No.%2017%20Aje%20Ejibiran%20Street%2C%20off%20Olowoila%20Bus%20Stop%2C%20Igando%2C%20Lagos'
 export const tiktokUrl = 'https://www.tiktok.com/@nanainknails?_r=1&_t=ZS-9AR7ATyp0hK'
