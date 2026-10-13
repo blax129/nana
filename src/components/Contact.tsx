@@ -52,14 +52,14 @@ export function Footer() {
             <ContactIcon kind="whatsapp" />
             <span>
               <small>WhatsApp</small>
-              <span>+234 802 447 8190 ↗</span>
+              <span>+234 902 163 9937 ↗</span>
             </span>
           </a>
           <a href={phoneUrl}>
             <ContactIcon kind="call" />
             <span>
               <small>Call</small>
-              <span>0903 750 4740 ↗</span>
+              <span>0902 163 9937 ↗</span>
             </span>
           </a>
         </div>
@@ -81,11 +81,11 @@ export function ContactPage() {
       <div className="wrap contact-links">
         <a href={whatsappUrl} target="_blank" rel="noreferrer">
           <small>WhatsApp</small>
-          <strong>+234 802 447 8190</strong>
+          <strong>+234 902 163 9937</strong>
         </a>
         <a href={phoneUrl}>
           <small>Call</small>
-          <strong>0903 750 4740</strong>
+          <strong>0902 163 9937</strong>
         </a>
         <a href={mapUrl} target="_blank" rel="noreferrer">
           <small>Visit</small>
