@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { ResponsiveImage } from './ResponsiveImage'
 import { mapUrl } from '../data'
 import { Inspirations } from './Galleries'
 import { StudioReel } from './StudioReel'
@@ -64,10 +65,11 @@ export function Home({ ready, backdrop }: { ready: boolean; backdrop: boolean })
         <div className="hero-stage">
           <div className="portrait-frame">
             <div className="hero-photo-wrap">
-              <img
+              <ResponsiveImage
                 src="/assets/nana-brand-portrait.jpeg"
                 alt="Nana, tattoo and nail artist in Igando, Lagos"
                 fetchPriority="high"
+                sizes="(max-width: 680px) 320px, 400px"
               />
             </div>
           </div>

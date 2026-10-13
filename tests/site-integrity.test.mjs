@@ -47,3 +47,22 @@ test('booking covers both services', () => {
   assert.match(message, /tattoo/)
   assert.match(message, /nail/)
 })
+
+test('responsive images and video posters are present in the build', () => {
+  const dimensions = JSON.parse(readFileSync('src/imageDimensions.json', 'utf8'))
+  let originals = 0,
+    mobile = 0
+  for (const [src, size] of Object.entries(dimensions)) {
+    assert.ok(size.width > 0 && size.height > 0)
+    const base = src.replace('/assets/', '/assets/optimized/').replace(/\.[^.]+$/, '')
+    originals += statSync(`public${src}`).size
+    mobile += statSync(`dist${base}-640.webp`).size
+    assert.ok(statSync(`dist${base}-1080.webp`).size > 0)
+  }
+  assert.ok(mobile < originals / 2, 'Responsive mobile images should save at least 50%')
+  for (let index = 1; index <= 10; index++)
+    assert.ok(
+      statSync(`dist/assets/nails/video-${String(index).padStart(2, '0')}-poster.webp`).size > 0,
+    )
+  assert.ok(statSync('dist/assets/studio/finished-tattoos-poster.webp').size > 0)
+})

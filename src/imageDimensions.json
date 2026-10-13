@@ -1,0 +1,390 @@
+{
+  "/assets/portfolio/16-minimal-linework-forearm.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/assets/portfolio/13-saturn-arm.jpg": {
+    "width": 1200,
+    "height": 1500
+  },
+  "/assets/portfolio/15-bold-lettering-forearm.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/assets/portfolio/08-arabic-calligraphy-shoulder.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/assets/portfolio/02-floral-neck.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/assets/portfolio/10-melting-smiley-arm.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/assets/portfolio/03-theatre-masks-forearm.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/assets/portfolio/07-minimal-tree-chest.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/assets/portfolio/12-small-hearts-hand.jpg": {
+    "width": 1200,
+    "height": 1500
+  },
+  "/assets/portfolio/05-anatomical-heart-dream.jpg": {
+    "width": 1200,
+    "height": 1500
+  },
+  "/assets/portfolio/14-neck-script.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/assets/portfolio/09-spider-tattoo.jpg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/assets/portfolio/11-lightbulb-forearm.jpg": {
+    "width": 1920,
+    "height": 2560
+  },
+  "/assets/portfolio/06-astronaut-chest.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/assets/portfolio/04-prime-junior-lettering.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/assets/portfolio/01-floral-butterfly-forearm.jpg": {
+    "width": 1440,
+    "height": 2560
+  },
+  "/assets/nails/photo-11.jpeg": {
+    "width": 607,
+    "height": 1080
+  },
+  "/assets/nails/photo-07.jpeg": {
+    "width": 810,
+    "height": 1080
+  },
+  "/assets/nails/photo-06.jpeg": {
+    "width": 810,
+    "height": 1080
+  },
+  "/assets/nails/photo-10.jpeg": {
+    "width": 810,
+    "height": 1080
+  },
+  "/assets/nails/photo-17.jpeg": {
+    "width": 607,
+    "height": 1080
+  },
+  "/assets/nails/photo-01.jpeg": {
+    "width": 810,
+    "height": 1080
+  },
+  "/assets/nails/photo-16.jpeg": {
+    "width": 607,
+    "height": 1080
+  },
+  "/assets/nails/photo-03.jpeg": {
+    "width": 810,
+    "height": 1080
+  },
+  "/assets/nails/photo-15.jpeg": {
+    "width": 607,
+    "height": 1080
+  },
+  "/assets/nails/photo-19.jpeg": {
+    "width": 810,
+    "height": 1080
+  },
+  "/assets/nails/photo-18.jpeg": {
+    "width": 607,
+    "height": 1080
+  },
+  "/assets/nails/photo-14.jpeg": {
+    "width": 607,
+    "height": 1080
+  },
+  "/assets/nails/photo-02.jpeg": {
+    "width": 810,
+    "height": 1080
+  },
+  "/assets/nails/photo-09.jpeg": {
+    "width": 607,
+    "height": 1080
+  },
+  "/assets/nails/photo-05.jpeg": {
+    "width": 810,
+    "height": 1080
+  },
+  "/assets/nails/photo-13.jpeg": {
+    "width": 607,
+    "height": 1080
+  },
+  "/assets/nails/photo-12.jpeg": {
+    "width": 607,
+    "height": 1080
+  },
+  "/assets/nails/photo-04.jpeg": {
+    "width": 810,
+    "height": 1080
+  },
+  "/assets/nails/photo-08.jpeg": {
+    "width": 607,
+    "height": 1080
+  },
+  "/assets/inspirations/reference-56.jpeg": {
+    "width": 854,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-01.jpeg": {
+    "width": 1362,
+    "height": 2560
+  },
+  "/assets/inspirations/reference-17.jpeg": {
+    "width": 540,
+    "height": 1080
+  },
+  "/assets/inspirations/reference-40.jpeg": {
+    "width": 906,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-37.jpeg": {
+    "width": 1170,
+    "height": 1199
+  },
+  "/assets/inspirations/reference-60.jpeg": {
+    "width": 588,
+    "height": 858
+  },
+  "/assets/inspirations/reference-21.jpeg": {
+    "width": 422,
+    "height": 644
+  },
+  "/assets/inspirations/reference-20.jpeg": {
+    "width": 854,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-61.jpeg": {
+    "width": 1280,
+    "height": 620
+  },
+  "/assets/inspirations/reference-36.jpeg": {
+    "width": 898,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-41.jpeg": {
+    "width": 735,
+    "height": 520
+  },
+  "/assets/inspirations/reference-16.jpeg": {
+    "width": 1090,
+    "height": 1090
+  },
+  "/assets/inspirations/reference-57.jpeg": {
+    "width": 1200,
+    "height": 960
+  },
+  "/assets/inspirations/reference-31.jpeg": {
+    "width": 575,
+    "height": 1080
+  },
+  "/assets/inspirations/reference-27.jpeg": {
+    "width": 942,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-50.jpeg": {
+    "width": 906,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-07.jpeg": {
+    "width": 600,
+    "height": 600
+  },
+  "/assets/inspirations/reference-11.jpeg": {
+    "width": 736,
+    "height": 982
+  },
+  "/assets/inspirations/reference-46.jpeg": {
+    "width": 1088,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-47.jpeg": {
+    "width": 898,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-10.jpeg": {
+    "width": 1072,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-06.jpeg": {
+    "width": 720,
+    "height": 594
+  },
+  "/assets/inspirations/reference-51.jpeg": {
+    "width": 735,
+    "height": 490
+  },
+  "/assets/inspirations/reference-26.jpeg": {
+    "width": 500,
+    "height": 750
+  },
+  "/assets/inspirations/reference-30.jpeg": {
+    "width": 750,
+    "height": 1000
+  },
+  "/assets/inspirations/reference-48.jpeg": {
+    "width": 826,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-09.jpeg": {
+    "width": 591,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-25.jpeg": {
+    "width": 1200,
+    "height": 1200
+  },
+  "/assets/inspirations/reference-33.jpeg": {
+    "width": 575,
+    "height": 1080
+  },
+  "/assets/inspirations/reference-44.jpeg": {
+    "width": 904,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-13.jpeg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-05.jpeg": {
+    "width": 736,
+    "height": 1042
+  },
+  "/assets/inspirations/reference-52.jpeg": {
+    "width": 750,
+    "height": 1199
+  },
+  "/assets/inspirations/reference-29.jpeg": {
+    "width": 1124,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-28.jpeg": {
+    "width": 960,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-53.jpeg": {
+    "width": 906,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-04.jpeg": {
+    "width": 1362,
+    "height": 2560
+  },
+  "/assets/inspirations/reference-12.jpeg": {
+    "width": 735,
+    "height": 942
+  },
+  "/assets/inspirations/reference-45.jpeg": {
+    "width": 906,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-32.jpeg": {
+    "width": 575,
+    "height": 1080
+  },
+  "/assets/inspirations/reference-24.jpeg": {
+    "width": 736,
+    "height": 1104
+  },
+  "/assets/inspirations/reference-08.jpeg": {
+    "width": 960,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-49.jpeg": {
+    "width": 1080,
+    "height": 1271
+  },
+  "/assets/inspirations/reference-42.jpeg": {
+    "width": 912,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-15.jpeg": {
+    "width": 810,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-03.jpeg": {
+    "width": 340,
+    "height": 270
+  },
+  "/assets/inspirations/reference-54.jpeg": {
+    "width": 780,
+    "height": 1079
+  },
+  "/assets/inspirations/reference-39.jpeg": {
+    "width": 960,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-19.jpeg": {
+    "width": 736,
+    "height": 1177
+  },
+  "/assets/inspirations/reference-58.jpeg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-23.jpeg": {
+    "width": 735,
+    "height": 981
+  },
+  "/assets/inspirations/reference-35.jpeg": {
+    "width": 1170,
+    "height": 1164
+  },
+  "/assets/inspirations/reference-34.jpeg": {
+    "width": 904,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-22.jpeg": {
+    "width": 906,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-59.jpeg": {
+    "width": 1162,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-18.jpeg": {
+    "width": 854,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-38.jpeg": {
+    "width": 720,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-55.jpeg": {
+    "width": 592,
+    "height": 1280
+  },
+  "/assets/inspirations/reference-02.jpeg": {
+    "width": 1362,
+    "height": 2560
+  },
+  "/assets/inspirations/reference-14.jpeg": {
+    "width": 354,
+    "height": 766
+  },
+  "/assets/inspirations/reference-43.jpeg": {
+    "width": 906,
+    "height": 1280
+  },
+  "/assets/nana-brand-portrait.jpeg": {
+    "width": 608,
+    "height": 1080
+  }
+}

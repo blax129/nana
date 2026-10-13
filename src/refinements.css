@@ -365,3 +365,195 @@
 .backdrop-preview .float-book {
   display: none !important;
 }
+
+/* Immediate route changes; retain smooth scrolling only for explicit in-page actions. */
+html {
+  scroll-behavior: auto;
+}
+.loader {
+  transition:
+    opacity 0.18s,
+    visibility 0.18s;
+}
+.hero-ready .portrait-frame {
+  animation-duration: 0.85s;
+}
+.gallery-backdrop {
+  overflow: hidden;
+  background: var(--ink);
+  text-align: center;
+  filter: blur(3px);
+  opacity: 0.7;
+}
+.gallery-backdrop-portrait {
+  width: min(400px, calc(100% - 64px));
+  aspect-ratio: 4 / 5;
+  margin: 96px auto 48px;
+}
+.gallery-backdrop-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+}
+.gallery-backdrop-heading {
+  font: 400 clamp(40px, 6vw, 76px)/1 var(--display);
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+.gallery-backdrop > p:last-child {
+  color: var(--muted);
+  padding: 0 24px;
+}
+
+/* Edge-to-edge films without black player chrome or embedded side bars. */
+.media-film {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  isolation: isolate;
+}
+.media-film video,
+.nail-gallery .media-film video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  border-radius: inherit;
+  object-fit: cover;
+  background: transparent;
+}
+.studio-moment {
+  width: min(100%, 440px);
+  margin: 32px auto;
+  box-shadow: none;
+}
+.film-label,
+.film-toggle {
+  position: absolute;
+  z-index: 1;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  background: #13231b80;
+  backdrop-filter: blur(8px);
+  border: 1px solid #ffffff30;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font: 500 12px/1.4 var(--sans);
+}
+.film-label {
+  left: 16px;
+  pointer-events: none;
+}
+.film-label > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d8c392;
+}
+.film-toggle {
+  right: 16px;
+  cursor: pointer;
+  min-height: 44px;
+}
+.film-toggle:hover {
+  background: #13231bd9;
+}
+.film-toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -4px;
+}
+.film-pulse {
+  animation: film-pulse 2s ease-in-out infinite;
+}
+@keyframes film-pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* The name follows a gentle descending diagonal over the lower portrait. */
+.hero-title {
+  inset: 43% 9% 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: clamp(38px, 4.4vw, 54px);
+  line-height: 0.95;
+  text-align: left;
+  font-style: italic;
+}
+.hero-title .hero-word-row {
+  display: block;
+  width: max-content;
+  transform: rotate(-7deg);
+}
+.hero-title .hero-word-row-1 {
+  margin-left: 0;
+}
+.hero-title .hero-word-row-2 {
+  margin-left: 22%;
+}
+.hero-title .hero-word-row-3 {
+  margin-left: 44%;
+}
+.hero-title .hero-word-row-4 {
+  margin-left: 58%;
+}
+.hero-title .hero-word-motion {
+  display: block;
+}
+.hero-ready .hero-word {
+  animation:
+    diagonal-reveal 0.65s var(--delay) ease-out both,
+    diagonal-float 5s calc(0.7s + var(--delay)) ease-in-out infinite alternate;
+}
+@keyframes diagonal-reveal {
+  from {
+    opacity: 0;
+    transform: translate(-12px, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes diagonal-float {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(5px, -4px);
+  }
+}
+@media (max-width: 680px) {
+  .gallery-backdrop-portrait {
+    width: min(320px, calc(100% - 64px));
+    margin-top: 88px;
+  }
+  .hero-title {
+    font-size: clamp(32px, 10.5vw, 42px);
+  }
+  .media-film {
+    border-radius: 12px;
+  }
+  .studio-moment {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-ready .hero-word,
+  .film-pulse {
+    animation: none;
+    opacity: 1;
+  }
+}

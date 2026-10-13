@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { portfolio, whatsappUrl } from './data'
 import { ContactPage, Footer } from './components/Contact'
 import { GalleryChoice, Inspirations, NailPortfolio, TattooPortfolio } from './components/Galleries'
@@ -118,13 +118,13 @@ export default function App() {
     }
   }, [theme])
   useEffect(() => {
-    const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 300 : 1700
+    const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 100 : 500
     const timer = window.setTimeout(() => setBooting(false), delay)
     return () => window.clearTimeout(timer)
   }, [])
   useEffect(() => {
     if (booting) return
-    const timer = window.setTimeout(() => setReady(true), 700)
+    const timer = window.setTimeout(() => setReady(true), 180)
     return () => window.clearTimeout(timer)
   }, [booting])
   useEffect(() => {
@@ -133,11 +133,13 @@ export default function App() {
       if (hash && !pages.includes(hash as Page)) return
       setPage(pageFromHash())
       setLightbox(null)
-      window.scrollTo(0, 0)
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [page])
   useEffect(() => {
     document.body.classList.toggle('no-scroll', booting || lightbox !== null)
     return () => document.body.classList.remove('no-scroll')

@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react'
+import { AutoplayVideo } from './AutoplayVideo'
+import { ResponsiveImage } from './ResponsiveImage'
 import { portfolio } from '../data'
 import { inspirationDescriptions, nailDescriptions } from '../galleryData'
 
@@ -20,14 +22,17 @@ export function GalleryChoice() {
         if (!(event.target as HTMLElement).closest('a,button')) location.hash = 'home'
       }}
     >
-      <iframe
-        className="gallery-backdrop"
-        src={`${location.pathname}?galleryBackdrop=1#home`}
-        title="Home page background"
-        tabIndex={-1}
-        aria-hidden="true"
-        inert
-      />
+      <div className="gallery-backdrop" aria-hidden="true" inert>
+        <div className="gallery-backdrop-portrait">
+          <ResponsiveImage src="/assets/nana-brand-portrait.jpeg" alt="" sizes="400px" />
+        </div>
+        <p className="gallery-backdrop-heading">
+          Beauty. Art.
+          <br />
+          Confidence.
+        </p>
+        <p>Welcome to Nana Ink &amp; Nails in Igando, Lagos</p>
+      </div>
       {['Nails', 'Tattoos'].map((name, index) => (
         <a
           key={name}
@@ -76,16 +81,14 @@ export function TattooPortfolio({ onOpen }: { onOpen: (index: number) => void })
       <div className="gallery-grid">
         {portfolio.map((item, index) => (
           <button className="shot" key={item.src} onClick={() => onOpen(index)}>
-            <img src={item.src} alt={item.alt} loading="lazy" />
+            <ResponsiveImage src={item.src} alt={item.alt} loading="lazy" />
           </button>
         ))}
-        <video
-          className="finished-work-video"
+        <AutoplayVideo
+          className="portfolio-film"
           src="/assets/studio/finished-tattoos.mp4"
-          controls
-          playsInline
-          preload="metadata"
-          aria-label="Finished tattoo portfolio video"
+          poster="/assets/studio/finished-tattoos-poster.webp"
+          label="finished tattoo portfolio video"
         />
       </div>
     </section>
@@ -107,7 +110,7 @@ export function NailPortfolio() {
       <PortfolioHeading />
       <div className="nail-gallery">
         {nailDescriptions.map((alt, index) => (
-          <img
+          <ResponsiveImage
             key={alt}
             src={`/assets/nails/photo-${String(index + 1).padStart(2, '0')}.jpeg`}
             alt={alt}
@@ -119,19 +122,13 @@ export function NailPortfolio() {
       <h2 className="portfolio-heading">In motion</h2>
       <div className="nail-gallery nail-videos">
         {Array.from({ length: 10 }, (_, index) => (
-          <video
+          <AutoplayVideo
             key={index}
-            controls
-            playsInline
-            preload="metadata"
-            aria-label={`Nail portfolio video ${index + 1}`}
-          >
-            <source
-              src={`/assets/nails/video-${String(index + 1).padStart(2, '0')}.mp4`}
-              type="video/mp4"
-            />
-            Your browser does not support this video.
-          </video>
+            className="portfolio-film"
+            src={`/assets/nails/video-${String(index + 1).padStart(2, '0')}.mp4`}
+            poster={`/assets/nails/video-${String(index + 1).padStart(2, '0')}-poster.webp`}
+            label={`nail portfolio video ${index + 1}`}
+          />
         ))}
       </div>
     </section>
@@ -155,7 +152,7 @@ export function Inspirations() {
               rel="noreferrer"
               aria-label={`View full image: ${description}`}
             >
-              <img src={src} alt={description} loading="lazy" />
+              <ResponsiveImage src={src} alt={description} loading="lazy" />
             </a>
           )
         })}
