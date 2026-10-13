@@ -73,19 +73,23 @@ export function Home({ ready, backdrop }: { ready: boolean; backdrop: boolean })
               />
             </div>
           </div>
-          <h1 className="hero-title" aria-label="Nana Ink & Nail">
-            {['Nana', 'Ink', '&', 'Nail'].map((word, index) => (
-              <span
-                key={word}
-                className={`hero-word-row hero-word-row-${index + 1}`}
-                aria-hidden="true"
-              >
-                <span className="hero-word-motion">
-                  <span className="hero-word">{word}</span>
-                </span>
+          <div className="portrait-signature">
+            <svg className="signature-orbit" viewBox="0 0 400 220" fill="none" aria-hidden="true">
+              <ellipse cx="200" cy="112" rx="184" ry="69" transform="rotate(-14 200 112)" />
+              <path d="M25 167C90 202 305 174 377 53" />
+            </svg>
+            <span className="signature-star" aria-hidden="true">
+              ✧
+            </span>
+            <h1 className="signature-name" aria-label="Nana Ink & Nails">
+              <span className="signature-nana" aria-hidden="true">
+                Nana<span>.</span>
               </span>
-            ))}
-          </h1>
+              <span className="signature-detail" aria-hidden="true">
+                Ink <i>&</i> Nails
+              </span>
+            </h1>
+          </div>
         </div>
       </section>
       <section className="about" id="about">
