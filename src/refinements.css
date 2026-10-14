@@ -629,3 +629,138 @@ html {
     opacity: 1;
   }
 }
+
+/* Phone layouts: readable rhythm, complete artwork, and reachable media controls. */
+.portfolio-film {
+  aspect-ratio: var(--film-aspect, 0.5625);
+}
+.portfolio-film video {
+  object-fit: contain;
+}
+@media (max-width: 680px) {
+  .wrap {
+    width: calc(100% - 40px);
+  }
+  .hero-stage {
+    width: min(320px, calc(100% - 56px));
+    margin-top: 88px;
+  }
+  .about {
+    padding: 36px 0 44px;
+  }
+  .intro-copy h2 {
+    font-size: clamp(38px, 10.5vw, 52px);
+    line-height: 1.03;
+  }
+  .intro-copy > p:not(.index-label) {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-top: 22px;
+  }
+  .intro-copy .actions {
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .intro-copy .btn {
+    min-height: 52px;
+    border-radius: 16px;
+    letter-spacing: 0.06em;
+  }
+  .studio-moment {
+    width: min(100%, calc(76svh * 0.5625));
+    margin: 28px auto;
+  }
+  .portfolio-page .page {
+    padding-top: max(16px, env(safe-area-inset-top));
+    padding-bottom: 32px;
+  }
+  .portfolio-page .route-title {
+    font-size: clamp(36px, 10vw, 50px);
+    line-height: 1.08;
+  }
+  .portfolio-intro,
+  .nail-intro {
+    margin: 28px auto 36px;
+  }
+  .portfolio-intro p,
+  .nail-intro p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .portfolio-heading {
+    font-size: clamp(34px, 9vw, 44px);
+    line-height: 1.12;
+  }
+  .portfolio-caption {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+  .portfolio-page .gallery-grid,
+  .portfolio-page .nail-gallery {
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .gallery-grid .shot {
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    border-radius: 16px;
+  }
+  .gallery-grid .shot img,
+  .nail-gallery > img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 80svh;
+    object-fit: contain;
+    border-radius: 16px;
+    margin-inline: auto;
+  }
+  .portfolio-film {
+    width: min(100%, calc(78svh * var(--film-aspect, 0.5625)));
+    margin-inline: auto;
+  }
+  .media-film {
+    border-radius: 16px;
+  }
+  .film-label,
+  .film-toggle {
+    bottom: 12px;
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+  .film-label {
+    left: 12px;
+  }
+  .film-toggle {
+    right: 12px;
+    min-width: 76px;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+  .float-book {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  .booking-footer {
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
+  }
+  .footer-contacts a {
+    overflow-wrap: anywhere;
+  }
+  .lightbox {
+    padding-bottom: max(84px, env(safe-area-inset-bottom));
+  }
+}
+@media (hover: none) {
+  .shot:hover img {
+    transform: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .portfolio-page .float-book {
+    display: none;
+  }
+}

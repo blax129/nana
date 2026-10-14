@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type CSSProperties } from 'react'
 
 type Props = { src: string; poster: string; label: string; className?: string }
 
@@ -7,6 +7,7 @@ export function AutoplayVideo({ src, poster, label, className = '' }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const userPaused = useRef(false)
   const inView = useRef(false)
+  const [aspect, setAspect] = useState(9 / 16)
   const [loaded, setLoaded] = useState(false)
   const [playing, setPlaying] = useState(false)
   const [blocked, setBlocked] = useState(false)
@@ -41,7 +42,7 @@ export function AutoplayVideo({ src, poster, label, className = '' }: Props) {
     }
     const visibility = new IntersectionObserver(
       ([entry]) => {
-        inView.current = entry.isIntersecting
+        inView.current = entry.isIntersecting && entry.intersectionRatio >= 0.2
         update()
       },
       { threshold: 0.2 },
@@ -68,7 +69,10 @@ export function AutoplayVideo({ src, poster, label, className = '' }: Props) {
     } else video.pause()
   }
   return (
-    <figure className={`media-film ${className}`}>
+    <figure
+      className={`media-film ${className}`}
+      style={{ '--film-aspect': aspect } as CSSProperties}
+    >
       <video
         ref={videoRef}
         src={loaded ? src : undefined}
@@ -78,6 +82,11 @@ export function AutoplayVideo({ src, poster, label, className = '' }: Props) {
         playsInline
         preload="none"
         aria-label={label}
+        onLoadedMetadata={(event) => {
+          const video = event.currentTarget
+          if (video.videoHeight && !className.includes('studio-moment'))
+            setAspect(video.videoWidth / video.videoHeight)
+        }}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
       />
