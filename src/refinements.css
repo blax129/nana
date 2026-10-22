@@ -115,7 +115,7 @@
   width: min(400px, calc(100% - 64px));
   height: auto;
   min-height: 0;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
   margin: 96px auto 0;
 }
 .portrait-frame {
