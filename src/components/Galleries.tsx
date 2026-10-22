@@ -86,7 +86,7 @@ export function TattooPortfolio({ onOpen }: { onOpen: (index: number) => void })
         ))}
         <AutoplayVideo
           className="portfolio-film"
-          src="/assets/studio/finished-tattoos.mp4"
+          src="/assets/studio/finished-tattoos-web.mp4"
           poster="/assets/studio/finished-tattoos-poster.webp"
           label="finished tattoo portfolio video"
         />

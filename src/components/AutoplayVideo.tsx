@@ -21,7 +21,7 @@ export function AutoplayVideo({ src, poster, label, className = '', priority = f
           loadObserver.disconnect()
         }
       },
-      { rootMargin: '1000px' },
+      { rootMargin: '300px' },
     )
     loadObserver.observe(video)
     return () => loadObserver.disconnect()
