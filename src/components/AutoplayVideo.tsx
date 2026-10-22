@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 
-type Props = { src: string; poster: string; label: string; className?: string }
+type Props = { src: string; poster: string; label: string; className?: string; priority?: boolean }
 
 /** Fetch nearby films only; pause offscreen or when the browser tab is hidden. */
-export function AutoplayVideo({ src, poster, label, className = '' }: Props) {
+export function AutoplayVideo({ src, poster, label, className = '', priority = false }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const userPaused = useRef(false)
   const inView = useRef(false)
   const [aspect, setAspect] = useState(9 / 16)
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(priority)
   const [playing, setPlaying] = useState(false)
-  const [blocked, setBlocked] = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
@@ -22,7 +21,7 @@ export function AutoplayVideo({ src, poster, label, className = '' }: Props) {
           loadObserver.disconnect()
         }
       },
-      { rootMargin: '300px' },
+      { rootMargin: '1000px' },
     )
     loadObserver.observe(video)
     return () => loadObserver.disconnect()
@@ -34,24 +33,23 @@ export function AutoplayVideo({ src, poster, label, className = '' }: Props) {
     const update = () => {
       if (inView.current && !document.hidden && !userPaused.current) {
         video.muted = true
-        void video
-          .play()
-          .then(() => setBlocked(false))
-          .catch(() => setBlocked(true))
+        void video.play().catch(() => {})
       } else video.pause()
     }
     const visibility = new IntersectionObserver(
       ([entry]) => {
-        inView.current = entry.isIntersecting && entry.intersectionRatio >= 0.2
+        inView.current = entry.isIntersecting && entry.intersectionRatio >= 0.01
         update()
       },
-      { threshold: 0.2 },
+      { threshold: 0.01 },
     )
     visibility.observe(video)
     document.addEventListener('visibilitychange', update)
+    video.addEventListener('canplay', update)
     return () => {
       visibility.disconnect()
       document.removeEventListener('visibilitychange', update)
+      video.removeEventListener('canplay', update)
       video.pause()
     }
   }, [loaded])
@@ -61,11 +59,9 @@ export function AutoplayVideo({ src, poster, label, className = '' }: Props) {
     if (!video) return
     userPaused.current = !video.paused
     if (video.paused) {
+      if (!loaded) video.src = src
       setLoaded(true)
-      void video
-        .play()
-        .then(() => setBlocked(false))
-        .catch(() => setBlocked(true))
+      void video.play().catch(() => {})
     } else video.pause()
   }
   return (
@@ -79,9 +75,19 @@ export function AutoplayVideo({ src, poster, label, className = '' }: Props) {
         poster={poster}
         muted
         loop
+        autoPlay={priority}
         playsInline
-        preload="none"
-        aria-label={label}
+        preload={loaded ? 'auto' : 'none'}
+        role="button"
+        tabIndex={0}
+        aria-label={`${playing ? 'Pause' : 'Play'} ${label}`}
+        onClick={togglePlayback}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault()
+            togglePlayback()
+          }
+        }}
         onLoadedMetadata={(event) => {
           const video = event.currentTarget
           if (video.videoHeight && !className.includes('studio-moment'))
@@ -90,19 +96,12 @@ export function AutoplayVideo({ src, poster, label, className = '' }: Props) {
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
       />
-      <span className="film-label" aria-hidden="true">
-        <span className={playing ? 'film-pulse' : ''} />
-        {playing ? 'In motion' : 'Video'}
-      </span>
-      <button
-        className="film-toggle"
-        type="button"
-        onClick={togglePlayback}
-        aria-label={`${playing ? 'Pause' : 'Play'} ${label}`}
+      <span
+        className={`film-affordance ${playing ? 'is-playing' : 'is-paused'}`}
+        aria-hidden="true"
       >
-        <span aria-hidden="true">{playing ? 'Ⅱ' : '▶'}</span>
-        {playing ? 'Pause' : blocked ? 'Play video' : 'Play'}
-      </button>
+        {playing ? 'Ⅱ' : '▶'}
+      </span>
     </figure>
   )
 }

@@ -66,7 +66,7 @@ export function Home({ ready, backdrop }: { ready: boolean; backdrop: boolean })
           <div className="portrait-frame">
             <div className="hero-photo-wrap">
               <ResponsiveImage
-                src="/assets/nana-brand-portrait.jpeg"
+                src="/assets/nana-home-portrait.jpg"
                 alt="Nana, tattoo and nail artist in Igando, Lagos"
                 fetchPriority="high"
                 sizes="(max-width: 680px) 320px, 400px"

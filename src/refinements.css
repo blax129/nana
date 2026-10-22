@@ -127,7 +127,9 @@
 }
 .hero-photo-wrap img {
   object-fit: cover;
-  object-position: center 75%;
+  object-position: center;
+  transform-origin: center;
+  transform: none;
 }
 .hero-title {
   inset: 56% 8% 6%;
@@ -427,57 +429,40 @@ html {
   border-radius: inherit;
   object-fit: cover;
   background: transparent;
+  cursor: pointer;
 }
 .studio-moment {
   width: min(100%, 440px);
   margin: 32px auto;
   box-shadow: none;
 }
-.film-label,
-.film-toggle {
+.film-affordance {
   position: absolute;
   z-index: 1;
-  bottom: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 56px;
+  aspect-ratio: 1;
+  place-items: center;
   color: #fff;
-  background: #13231b80;
-  backdrop-filter: blur(8px);
-  border: 1px solid #ffffff30;
-  border-radius: 999px;
-  padding: 10px 14px;
-  font: 500 12px/1.4 var(--sans);
-}
-.film-label {
-  left: 16px;
-  pointer-events: none;
-}
-.film-label > span {
-  width: 6px;
-  height: 6px;
+  background: #101a14d9;
+  border: 1px solid #f0dfb5;
   border-radius: 50%;
-  background: #d8c392;
+  font: 500 18px/1 var(--sans);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 160ms ease;
 }
-.film-toggle {
-  right: 16px;
-  cursor: pointer;
-  min-height: 44px;
+.film-affordance.is-paused,
+.media-film:hover .film-affordance.is-playing,
+.media-film video:focus-visible + .film-affordance.is-playing {
+  opacity: 1;
 }
-.film-toggle:hover {
-  background: #13231bd9;
-}
-.film-toggle:focus-visible {
+.media-film video:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: -4px;
-}
-.film-pulse {
-  animation: film-pulse 2s ease-in-out infinite;
-}
-@keyframes film-pulse {
-  50% {
-    opacity: 0.4;
-  }
 }
 
 /* A sculptural gold signature, anchored below the artist's face. */
@@ -624,9 +609,9 @@ html {
   .hero-ready .signature-nana,
   .hero-ready .signature-orbit,
   .hero-ready .signature-star,
-  .film-pulse {
+  .film-affordance {
     animation: none;
-    opacity: 1;
+    transition: none;
   }
 }
 
@@ -724,21 +709,6 @@ html {
   .media-film {
     border-radius: 16px;
   }
-  .film-label,
-  .film-toggle {
-    bottom: 12px;
-    padding: 10px 12px;
-    font-size: 11px;
-  }
-  .film-label {
-    left: 12px;
-  }
-  .film-toggle {
-    right: 12px;
-    min-width: 76px;
-    min-height: 44px;
-    touch-action: manipulation;
-  }
   .float-book {
     right: max(16px, env(safe-area-inset-right));
     bottom: max(16px, env(safe-area-inset-bottom));
@@ -762,5 +732,94 @@ html {
 @media (max-width: 680px) {
   .portfolio-page .float-book {
     display: none;
+  }
+}
+
+/* Crisp surfaces and immediate feedback without extra rendering filters. */
+.hero-photo-wrap img {
+  filter: none;
+}
+.loader-logo {
+  animation: none;
+  box-shadow: none;
+}
+.loader {
+  transition:
+    opacity 0.12s,
+    visibility 0.12s;
+}
+.loader.is-leaving {
+  pointer-events: none;
+}
+.hero-ready .portrait-frame {
+  animation-duration: 0.45s;
+}
+.btn,
+.back-link,
+.gallery-choice-link,
+.float-book {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn {
+  box-shadow: 0 2px 6px #00000012;
+  transition:
+    transform 0.12s,
+    background 0.12s,
+    border-color 0.12s;
+}
+.btn:active,
+.back-link:active {
+  transform: scale(0.98);
+}
+.btn:focus-visible,
+.back-link:focus-visible,
+.gallery-choice-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+@media (max-width: 680px) {
+  .float-book {
+    bottom: max(20px, env(safe-area-inset-bottom));
+  }
+}
+
+.gallery-grid .shot,
+.gallery-grid > .portfolio-film,
+.nail-gallery > img,
+.nail-gallery > .portfolio-film,
+.reference-gallery a {
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.gallery-grid .shot img,
+.nail-gallery > img,
+.reference-gallery img,
+.portfolio-film video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery-grid > .portfolio-film,
+.nail-gallery > .portfolio-film {
+  width: 100%;
+}
+.reference-gallery {
+  columns: unset;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.reference-gallery a {
+  margin: 0;
+}
+@media (max-width: 680px) {
+  .reference-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .portfolio-film {
+    width: 100%;
+    margin-inline: 0;
   }
 }
